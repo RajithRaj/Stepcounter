@@ -53,6 +53,12 @@ class WatchconnectAct : AppCompatActivity(), MessageClient.OnMessageReceivedList
         startListener()
         initializeDataClient()
         checkAndRequestPermissions()
+        startStepService()
+    }
+    fun startStepService(){
+        val stepService = Intent(context, StepService::class.java)
+        stepService.setAction(StepService.ACTION_STOP_SERVICE)
+        context.startService(stepService)
     }
 
     fun checkAndRequestPermissions() {

@@ -156,9 +156,18 @@ class ConnectWearActivity : AppCompatActivity() {
 
             // Customize Y-Axis
             axisLeft.apply {
-                setDrawGridLines(false)
+                axisMinimum = 0f
+                axisMaximum = 70f
+                granularity = 20f
+                setLabelCount(6, true) // Force specific labels
+                setDrawGridLines(true)
             }
-            axisRight.isEnabled = false
+            axisRight.apply{
+                isEnabled = false
+            }
+            xAxis.setDrawGridLines(true) // Enable x-axis grid lines
+
+
             legend.isEnabled = false
             // Customize Legend
 //            legend.form = Legend.LegendForm.LINE
@@ -183,12 +192,12 @@ class ConnectWearActivity : AppCompatActivity() {
             add(Entry(0f, 10f))
             add(Entry(1f, 15f))
             add(Entry(2f, 12f))
-            add(Entry(3f, 25f))
-            add(Entry(4f, 26f))
-            add(Entry(5f, 33f))
-            add(Entry(6f, 40f))
-            add(Entry(7f, 50f))
-            add(Entry(8f, 50f))
+            add(Entry(3f, 20f))
+            add(Entry(4f, 21f))
+            add(Entry(5f, 23f))
+            add(Entry(6f, 25f))
+            add(Entry(7f, 26f))
+            add(Entry(8f, 24f))
         }
         loadLineChartData(entries,"Composite risk")
 
@@ -211,15 +220,15 @@ class ConnectWearActivity : AppCompatActivity() {
     }
     fun setFatigueRisk(){
         val entries = ArrayList<Entry>().apply {
-            add(Entry(0f, 50f))
-            add(Entry(1f, 45f))
-            add(Entry(2f, 45f))
-            add(Entry(3f, 40f))
-            add(Entry(4f, 33f))
-            add(Entry(5f, 28f))
-            add(Entry(6f, 20f))
-            add(Entry(7f, 20f))
-            add(Entry(8f, 16f))
+            add(Entry(0f, 10f))
+            add(Entry(1f, 15f))
+            add(Entry(2f, 20f))
+            add(Entry(3f, 21f))
+            add(Entry(4f, 23f))
+            add(Entry(5f, 25f))
+            add(Entry(6f, 26f))
+            add(Entry(7f, 35f))
+            add(Entry(8f, 30f))
         }
         loadLineChartData(entries,"Fatigue risk")
         val backgroundOne = layoutOne?.background as? GradientDrawable
@@ -240,7 +249,7 @@ class ConnectWearActivity : AppCompatActivity() {
             add(Entry(1f, 10f))
             add(Entry(2f, 12f))
             add(Entry(3f, 14f))
-            add(Entry(4f, 25f))
+            add(Entry(4f, 20f))
             add(Entry(5f, 25f))
             add(Entry(6f, 28f))
             add(Entry(7f, 35f))
