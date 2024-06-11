@@ -183,9 +183,17 @@
             android:id="@+id/riskLayoutOne"
             android:background="@drawable/crv_highrisk"
             android:layout_width="0dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_height="wrap_content"
             android:layout_weight="10">
+
+            <ImageView
+                app:tint="#ff0000"
+                android:padding="3dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/up_arrow"
+                android:layout_width="30dp"
+                android:layout_height="20dp"/>
 
 
 
@@ -193,15 +201,9 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
-                    app:tint="#ff0000"
-                    android:padding="3dp"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/up_arrow"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"/>
+
                 <TextView
                     android:textColor="#000000"
                     android:textSize="14dp"
@@ -209,16 +211,18 @@
                     android:layout_height="wrap_content"
                     android:text="Composite"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="risk name"
+                    android:textColor="#383838"
+                    android:textSize="8dp" />
+
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="risk name"
-                android:textColor="#383838"
-                android:textSize="8dp" />
+
         </LinearLayout>
         <Space
             android:layout_width="5dp"
@@ -231,40 +235,46 @@
             android:id="@+id/riskLayoutTwo"
             android:background="@drawable/crv_low_risk"
             android:layout_width="0dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_height="wrap_content"
             android:layout_weight="10">
 
 
 
+            <ImageView
+                app:tint="#40A578"
+                android:padding="3dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/down_arrow"
+                android:layout_width="30dp"
+                android:layout_height="20dp"/>
+
+
+
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
-                    app:tint="#00ff00"
-                    android:padding="3dp"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/down_arrow"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"/>
+
                 <TextView
-                    android:textColor="#383838"
+                    android:textColor="#000000"
                     android:textSize="14dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fatigue"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="risk name"
+                    android:textColor="#383838"
+                    android:textSize="8dp" />
+
 
             </LinearLayout>
-            <TextView
-                android:textColor="#383838"
-                android:textSize="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="risk name"/>
         </LinearLayout>
         <Space
             android:layout_width="5dp"
@@ -275,40 +285,46 @@
             android:id="@+id/riskLayoutThree"
             android:background="@drawable/crv_medium_risk"
             android:layout_width="0dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_height="wrap_content"
             android:layout_weight="10">
 
 
 
+            <ImageView
+                app:tint="#ff0000"
+                android:padding="3dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/up_arrow"
+                android:layout_width="30dp"
+                android:layout_height="20dp"/>
+
+
+
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
-                    app:tint="#ff0000"
-                    android:padding="3dp"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/up_arrow"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"/>
+
                 <TextView
-                    android:textColor="#383838"
+                    android:textColor="#000000"
                     android:textSize="14dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dehydration"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="risk name"
+                    android:textColor="#383838"
+                    android:textSize="8dp" />
+
 
             </LinearLayout>
-            <TextView
-                android:textColor="#383838"
-                android:textSize="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="risk name"/>
         </LinearLayout>
         <Space
             android:layout_width="5dp"
@@ -326,10 +342,16 @@
         android:layout_height="match_parent">
         <TextView
             android:id="@+id/graphTitle"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Composite"/>
+        <TextView
+           android:textSize="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fatigue risk"/>
+            android:text="8:00 am to 04:00 pm"/>
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/lineChart"
             android:layout_width="match_parent"
