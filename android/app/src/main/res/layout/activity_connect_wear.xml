@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="34567"
                 android:textColor="#6B6868"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textStyle="bold" />
 
         <TextView
@@ -49,10 +49,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2hrs 30mins"
+                android:text="2hr 30min"
                 android:textStyle="bold"
                 android:textColor="#1354A1"
-                android:textSize="16dp"/>
+                android:textSize="14dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
