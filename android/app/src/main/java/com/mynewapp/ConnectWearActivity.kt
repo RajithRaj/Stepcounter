@@ -1,6 +1,8 @@
 package com.mynewapp
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,10 +10,18 @@ import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.google.android.gms.wearable.Wearable
 import com.mynewapp.preference.AppDataPref
+
 
 class ConnectWearActivity : AppCompatActivity() {
     var nodeId =""
@@ -20,6 +30,11 @@ class ConnectWearActivity : AppCompatActivity() {
     var heartTextview : TextView?=null
     val handler = Handler(Looper.getMainLooper())
     private lateinit var appDataPref: AppDataPref
+    var lineChart: LineChart? = null
+    var layoutOne:LinearLayout?=null
+    var layoutTwo:LinearLayout?=null
+    var layoutThree:LinearLayout?=null
+    var graphTitle:TextView?=null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +44,12 @@ class ConnectWearActivity : AppCompatActivity() {
         //editText = findViewById<EditText>(R.id.editText)
         stepTextview = findViewById(R.id.Txtstep)
         heartTextview = findViewById(R.id.TxtHeart)
+        lineChart = findViewById(R.id.lineChart);
+
+        layoutOne = findViewById(R.id.riskLayoutOne);
+        layoutTwo = findViewById(R.id.riskLayoutTwo);
+        layoutThree = findViewById(R.id.riskLayoutThree);
+        graphTitle = findViewById(R.id.graphTitle);
 //        btn.setOnClickListener {
 //            //
 //            //detectWearableDevice()
@@ -41,7 +62,25 @@ class ConnectWearActivity : AppCompatActivity() {
 //            sendMessage(nodeId,text)
 //        }
         startHealthDateRunnable()
+
+        bindViews()
     }
+
+    private fun bindViews() {
+        setupLineChart();
+        setCompositeRisk()
+        layoutOne?.setOnClickListener {
+         setCompositeRisk()
+
+        }
+        layoutTwo?.setOnClickListener {
+          setFatigueRisk()
+        }
+        layoutThree?.setOnClickListener {
+           setDehyfrationRisk()
+        }
+    }
+
     private fun connectToWatch() {
         val nodeClient = Wearable.getNodeClient(this)
         val connectedNodesTask = nodeClient.connectedNodes
@@ -96,4 +135,110 @@ class ConnectWearActivity : AppCompatActivity() {
             handler.postDelayed(this, 1000)
         }
     }
+    private fun setupLineChart() {
+        lineChart?.apply {
+            setDrawGridBackground(false)
+            description.isEnabled = false
+
+            // Customize X-Axis
+            xAxis.apply {
+                position = XAxis.XAxisPosition.BOTTOM
+                setDrawGridLines(false)
+                granularity = 1f
+            }
+
+            // Customize Y-Axis
+            axisLeft.apply {
+                setDrawGridLines(false)
+            }
+            axisRight.isEnabled = false
+
+            // Customize Legend
+//            legend.form = Legend.LegendForm.LINE
+        }
+    }
+
+    private fun loadLineChartData(entries:ArrayList<Entry>,title:String) {
+
+        graphTitle?.text = title
+        val dataSet = LineDataSet(entries, "Sample Data").apply {
+            color = Color.BLUE
+            valueTextColor = Color.BLACK
+        }
+
+        lineChart?.data = LineData(dataSet)
+        lineChart?.invalidate() // Refresh the chart
+    }
+
+    fun setCompositeRisk (){
+        val entries = ArrayList<Entry>().apply {
+            add(Entry(0f, 10f))
+            add(Entry(1f, 15f))
+            add(Entry(2f, 12f))
+            add(Entry(3f, 25f))
+            add(Entry(4f, 50f))
+        }
+        loadLineChartData(entries,"Composite risk")
+
+
+
+        val backgroundOne = layoutOne?.background as? GradientDrawable
+        backgroundOne?.setStroke(2, Color.parseColor("#0000ff"))
+        layoutOne?.background = backgroundOne
+
+        val backgroundTwo = layoutTwo?.background as? GradientDrawable
+        backgroundTwo?.setStroke(0, Color.parseColor("#0000ff"))
+        layoutTwo?.background = backgroundTwo
+
+        val backgroundThree = layoutThree?.background as? GradientDrawable
+        backgroundThree?.setStroke(0, Color.parseColor("#0000ff"))
+        layoutThree?.background = backgroundThree
+
+
+
+    }
+    fun setFatigueRisk(){
+        val entries = ArrayList<Entry>().apply {
+            add(Entry(0f, 50f))
+            add(Entry(1f, 30f))
+            add(Entry(2f, 35f))
+            add(Entry(3f, 22f))
+            add(Entry(4f, 20f))
+        }
+        loadLineChartData(entries,"Fatigue risk")
+        val backgroundOne = layoutOne?.background as? GradientDrawable
+        backgroundOne?.setStroke(0, Color.parseColor("#0000ff"))
+        layoutOne?.background = backgroundOne
+
+        val backgroundTwo = layoutTwo?.background as? GradientDrawable
+        backgroundTwo?.setStroke(1, Color.parseColor("#0000ff"))
+        layoutTwo?.background = backgroundTwo
+
+        val backgroundThree = layoutThree?.background as? GradientDrawable
+        backgroundThree?.setStroke(0, Color.parseColor("#0000ff"))
+        layoutThree?.background = backgroundThree
+    }
+    fun setDehyfrationRisk(){
+        val entries = ArrayList<Entry>().apply {
+            add(Entry(0f, 12f))
+            add(Entry(1f, 40f))
+            add(Entry(2f, 45f))
+            add(Entry(3f, 60f))
+            add(Entry(4f, 63f))
+        }
+        loadLineChartData(entries,"Dehydration risk")
+
+        val backgroundOne = layoutOne?.background as? GradientDrawable
+        backgroundOne?.setStroke(0, Color.parseColor("#0000ff"))
+        layoutOne?.background = backgroundOne
+
+        val backgroundTwo = layoutTwo?.background as? GradientDrawable
+        backgroundTwo?.setStroke(0, Color.parseColor("#0000ff"))
+        layoutTwo?.background = backgroundTwo
+
+        val backgroundThree = layoutThree?.background as? GradientDrawable
+        backgroundThree?.setStroke(1, Color.parseColor("#0000ff"))
+        layoutThree?.background = backgroundThree
+    }
+
 }

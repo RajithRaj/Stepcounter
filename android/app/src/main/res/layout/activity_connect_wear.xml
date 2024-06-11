@@ -75,6 +75,7 @@
         >
 
         <LinearLayout
+            android:padding="10dp"
             android:layout_width="0dp"
             android:layout_height="170dp"
             android:layout_weight="1"
@@ -124,6 +125,7 @@
             android:layout_width="15dp"
             android:layout_height="16dp"/>
         <LinearLayout
+            android:padding="10dp"
             android:layout_width="0dp"
             android:layout_height="170dp"
             android:layout_weight="1"
@@ -167,6 +169,168 @@
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:paddingLeft="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/riskLayoutOne"
+            android:background="@drawable/crv_lightblude_card"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    app:tint="#ff0000"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/up_arrow"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"/>
+                <TextView
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Composite risk"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Risk name"
+                android:textColor="#000000"
+                android:textSize="10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:id="@+id/riskLayoutTwo"
+            android:background="@drawable/crv_lightblude_card"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    app:tint="#00ff00"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/down_arrow"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"/>
+                <TextView
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fatigue risk"/>
+
+
+            </LinearLayout>
+            <TextView
+                android:textColor="#000000"
+                android:textSize="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Risk name"/>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/riskLayoutThree"
+            android:background="@drawable/crv_lightblude_card"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    app:tint="#ff0000"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/up_arrow"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"/>
+                <TextView
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dehydration risk"/>
+
+
+            </LinearLayout>
+            <TextView
+                android:textColor="#000000"
+                android:textSize="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Risk name"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:padding="15dp"
+
+        android:background="@drawable/crv_white_card"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/graphTitle"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fatigue risk"/>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
 
 
 
