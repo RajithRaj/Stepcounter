@@ -77,7 +77,7 @@
         <LinearLayout
             android:padding="10dp"
             android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_height="150dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center_horizontal"
@@ -127,7 +127,7 @@
         <LinearLayout
             android:padding="10dp"
             android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_height="150dp"
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -171,8 +171,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -182,7 +182,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:id="@+id/riskLayoutOne"
-            android:background="@drawable/crv_lightblude_card"
+            android:background="@drawable/crv_highrisk"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -205,10 +205,10 @@
                     android:layout_height="15dp"/>
                 <TextView
                     android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textSize="14dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Composite risk"/>
+                    android:text="Composite"/>
 
 
             </LinearLayout>
@@ -218,9 +218,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="Risk name"
-                android:textColor="#000000"
+                android:textColor="#383838"
                 android:textSize="10dp" />
         </LinearLayout>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="16dp"/>
         <LinearLayout
             android:paddingLeft="8dp"
             android:paddingTop="10dp"
@@ -228,7 +231,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
             android:id="@+id/riskLayoutTwo"
-            android:background="@drawable/crv_lightblude_card"
+            android:background="@drawable/crv_low_risk"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -249,11 +252,11 @@
                     android:layout_width="15dp"
                     android:layout_height="15dp"/>
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textColor="#383838"
+                    android:textSize="14dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fatigue risk"/>
+                    android:text="Fatigue"/>
 
 
             </LinearLayout>
@@ -265,12 +268,15 @@
                 android:layout_height="wrap_content"
                 android:text="Risk name"/>
         </LinearLayout>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="16dp"/>
         <LinearLayout
             android:paddingLeft="8dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:id="@+id/riskLayoutThree"
-            android:background="@drawable/crv_lightblude_card"
+            android:background="@drawable/crv_medium_risk"
             android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -291,11 +297,11 @@
                     android:layout_width="15dp"
                     android:layout_height="15dp"/>
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:textColor="#383838"
+                    android:textSize="14dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dehydration risk"/>
+                    android:text="Dehydration"/>
 
 
             </LinearLayout>
@@ -307,6 +313,9 @@
                 android:layout_height="wrap_content"
                 android:text="Risk name"/>
         </LinearLayout>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="16dp"/>
 
     </LinearLayout>
 
