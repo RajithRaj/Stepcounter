@@ -1,5 +1,6 @@
 package com.mynewapp
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -14,30 +15,31 @@ import com.mynewapp.preference.AppDataPref
 
 class ConnectWearActivity : AppCompatActivity() {
     var nodeId =""
-    var editText : EditText?=null
+    //var editText : EditText?=null
     var stepTextview : TextView?=null
     var heartTextview : TextView?=null
     val handler = Handler(Looper.getMainLooper())
     private lateinit var appDataPref: AppDataPref
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connect_wear)
         appDataPref = AppDataPref(this)
-        var btn = findViewById<Button>(R.id.connect)
-        editText = findViewById<EditText>(R.id.editText)
-        stepTextview = findViewById(R.id.stepTxt)
-        heartTextview = findViewById(R.id.heartrateTxt)
-        btn.setOnClickListener {
-            //
-            //detectWearableDevice()
-            connectToWatch()
-        }
-        var sndMsg = findViewById<Button>(R.id.sndMsgBtn)
-        sndMsg.setOnClickListener {
-            //sendDataToWearable("Hello world");
-            val text: String = editText?.getText().toString()
-            sendMessage(nodeId,text)
-        }
+        //var btn = findViewById<Button>(R.id.connect)
+        //editText = findViewById<EditText>(R.id.editText)
+        stepTextview = findViewById(R.id.Txtstep)
+        heartTextview = findViewById(R.id.TxtHeart)
+//        btn.setOnClickListener {
+//            //
+//            //detectWearableDevice()
+//            connectToWatch()
+//        }
+//        var sndMsg = findViewById<Button>(R.id.sndMsgBtn)
+//        sndMsg.setOnClickListener {
+//            //sendDataToWearable("Hello world");
+//            val text: String = editText?.getText().toString()
+//            sendMessage(nodeId,text)
+//        }
         startHealthDateRunnable()
     }
     private fun connectToWatch() {
@@ -85,11 +87,11 @@ class ConnectWearActivity : AppCompatActivity() {
 
     private val runnable = object : Runnable {
         override fun run() {
-            val steps = appDataPref.getSteps()
-            val heart = appDataPref.getHeartRate()
+            val steps = appDataPref.getSteps()?.toDouble()?.toInt()
+            val heart = appDataPref.getHeartRate()?.toDouble()?.toInt()
 
-            stepTextview?.text = steps
-            heartTextview?.text = heart
+            stepTextview?.text = "$steps"
+            heartTextview?.text = "$heart"
 
             handler.postDelayed(this, 1000)
         }
