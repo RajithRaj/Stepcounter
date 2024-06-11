@@ -19,6 +19,7 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.google.android.gms.wearable.Wearable
 import com.mynewapp.preference.AppDataPref
 
@@ -35,6 +36,8 @@ class ConnectWearActivity : AppCompatActivity() {
     var layoutTwo:LinearLayout?=null
     var layoutThree:LinearLayout?=null
     var graphTitle:TextView?=null
+    val times = arrayOf("8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm","2:00 pm","3:00 pm","4:00 pm")
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -144,7 +147,8 @@ class ConnectWearActivity : AppCompatActivity() {
             xAxis.apply {
                 position = XAxis.XAxisPosition.BOTTOM
                 setDrawGridLines(false)
-                granularity = 1f
+                granularity = 2f
+                valueFormatter = getTimeValueFormatter(times)
             }
 
             // Customize Y-Axis
@@ -164,6 +168,7 @@ class ConnectWearActivity : AppCompatActivity() {
         val dataSet = LineDataSet(entries, "Sample Data").apply {
             color = Color.BLUE
             valueTextColor = Color.BLACK
+            mode = LineDataSet.Mode.CUBIC_BEZIER
         }
 
         lineChart?.data = LineData(dataSet)
@@ -177,6 +182,10 @@ class ConnectWearActivity : AppCompatActivity() {
             add(Entry(2f, 12f))
             add(Entry(3f, 25f))
             add(Entry(4f, 50f))
+            add(Entry(5f, 12f))
+            add(Entry(6f, 25f))
+            add(Entry(7f, 50f))
+            add(Entry(8f, 50f))
         }
         loadLineChartData(entries,"Composite risk")
 
@@ -204,6 +213,10 @@ class ConnectWearActivity : AppCompatActivity() {
             add(Entry(2f, 35f))
             add(Entry(3f, 22f))
             add(Entry(4f, 20f))
+            add(Entry(5f, 12f))
+            add(Entry(6f, 25f))
+            add(Entry(7f, 50f))
+            add(Entry(8f, 50f))
         }
         loadLineChartData(entries,"Fatigue risk")
         val backgroundOne = layoutOne?.background as? GradientDrawable
@@ -225,6 +238,10 @@ class ConnectWearActivity : AppCompatActivity() {
             add(Entry(2f, 45f))
             add(Entry(3f, 60f))
             add(Entry(4f, 63f))
+            add(Entry(5f, 12f))
+            add(Entry(6f, 25f))
+            add(Entry(7f, 50f))
+            add(Entry(8f, 50f))
         }
         loadLineChartData(entries,"Dehydration risk")
 
@@ -239,6 +256,19 @@ class ConnectWearActivity : AppCompatActivity() {
         val backgroundThree = layoutThree?.background as? GradientDrawable
         backgroundThree?.setStroke(1, Color.parseColor("#0000ff"))
         layoutThree?.background = backgroundThree
+    }
+
+    fun getTimeValueFormatter(times: Array<String>): ValueFormatter {
+        return object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                val index = value.toInt()
+                return if (index >= 0 && index < times.size) {
+                    times[index]
+                } else {
+                    value.toString()
+                }
+            }
+        }
     }
 
 }
