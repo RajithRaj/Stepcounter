@@ -178,7 +178,6 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:paddingLeft="8dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:id="@+id/riskLayoutOne"
@@ -217,15 +216,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:text="Risk name"
+                android:text="risk name"
                 android:textColor="#383838"
-                android:textSize="10dp" />
+                android:textSize="8dp" />
         </LinearLayout>
         <Space
-            android:layout_width="10dp"
+            android:layout_width="5dp"
             android:layout_height="16dp"/>
         <LinearLayout
-            android:paddingLeft="8dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_marginLeft="3dp"
@@ -261,18 +259,17 @@
 
             </LinearLayout>
             <TextView
-                android:textColor="#000000"
+                android:textColor="#383838"
                 android:textSize="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Risk name"/>
+                android:text="risk name"/>
         </LinearLayout>
         <Space
-            android:layout_width="10dp"
+            android:layout_width="5dp"
             android:layout_height="16dp"/>
         <LinearLayout
-            android:paddingLeft="8dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:id="@+id/riskLayoutThree"
@@ -306,15 +303,15 @@
 
             </LinearLayout>
             <TextView
-                android:textColor="#000000"
-                android:textSize="10dp"
+                android:textColor="#383838"
+                android:textSize="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Risk name"/>
+                android:text="risk name"/>
         </LinearLayout>
         <Space
-            android:layout_width="10dp"
+            android:layout_width="5dp"
             android:layout_height="16dp"/>
 
     </LinearLayout>

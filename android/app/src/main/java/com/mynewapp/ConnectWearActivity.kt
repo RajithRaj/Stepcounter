@@ -192,7 +192,7 @@ class ConnectWearActivity : AppCompatActivity() {
 
 
         val backgroundOne = layoutOne?.background as? GradientDrawable
-        backgroundOne?.setStroke(2, Color.parseColor("#0000ff"))
+        backgroundOne?.setStroke(5, Color.parseColor("#DD5746"))
         layoutOne?.background = backgroundOne
 
         val backgroundTwo = layoutTwo?.background as? GradientDrawable
@@ -224,7 +224,7 @@ class ConnectWearActivity : AppCompatActivity() {
         layoutOne?.background = backgroundOne
 
         val backgroundTwo = layoutTwo?.background as? GradientDrawable
-        backgroundTwo?.setStroke(1, Color.parseColor("#0000ff"))
+        backgroundTwo?.setStroke(5, Color.parseColor("#40A578"))
         layoutTwo?.background = backgroundTwo
 
         val backgroundThree = layoutThree?.background as? GradientDrawable
@@ -254,7 +254,7 @@ class ConnectWearActivity : AppCompatActivity() {
         layoutTwo?.background = backgroundTwo
 
         val backgroundThree = layoutThree?.background as? GradientDrawable
-        backgroundThree?.setStroke(1, Color.parseColor("#0000ff"))
+        backgroundThree?.setStroke(5, Color.parseColor("#FF7D29"))
         layoutThree?.background = backgroundThree
     }
 
